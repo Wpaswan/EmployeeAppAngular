@@ -1,0 +1,111 @@
+<input #checkbox1 type="checkbox" name="toggle" id="toggle">
+<label for="toggle"></label>
+<div class="container"></div>
+<div class="formAdd">
+    <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && submit(myForm)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="hidden" name="id" [value]="empService.employeeData.id">
+
+                    <label for="name" class="float-left">Name</label>
+                    <div *ngIf="name.invalid && (name.touched || name.dirty)" class="float-right">
+                        <p class="text-danger">required</p>
+                    </div>
+                    <input type="text" name="name" class="form-control" placeholder="Enter name" #name="ngModel"
+                        [(ngModel)]="empService.employeeData.name" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="name" class="float-left">Last Name</label>
+                    <div *ngIf="lastName.invalid && (lastName.touched || lastName.dirty)" class="float-right">
+                        <p class="text-danger">required</p>
+                    </div>
+                    <input type="text" name="lastName" class="form-control" placeholder="Enter lastName"
+                        #lastName="ngModel" [(ngModel)]="empService.employeeData.lastName" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="name" class="float-left">Email</label>
+                    <div *ngIf="email.invalid && (email.touched || email.dirty)" class="float-right">
+                        <p class="text-danger">required</p>
+                    </div>
+                    <input type="text" name="email" class="form-control" placeholder="Enter Email" #email="ngModel"
+                        [(ngModel)]="empService.employeeData.email" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="name" class="float-left">Age</label>
+                    <div *ngIf="age.invalid && (age.touched || age.dirty)" class="float-right">
+                        <p class="text-danger">required</p>
+                    </div>
+                    <input type="number" name="age" class="form-control" placeholder="Enter Age" #age="ngModel"
+                        [(ngModel)]="empService.employeeData.age" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="name" class="float-left">Date Of Joining</label>
+                    <div *ngIf="doj.invalid && (doj.touched || doj.dirty)" class="float-right">
+                        <p class="text-danger">required</p>
+                    </div>
+                    <input type="date" name="doj" class="form-control" placeholder="Enter Doj" #doj="ngModel"
+                        [(ngModel)]="empService.employeeData.doj" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="name" class="float-left">Designation</label>
+                    <div *ngIf="designation.invalid && (designation.touched || designation.dirty)" class="float-right">
+                        <p class="text-danger">required</p>
+                    </div>
+                    <input type="text" name="designation" class="form-control" placeholder="Enter Designation"
+                        #designation="ngModel" [(ngModel)]="empService.employeeData.designation" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="gender">Gender</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" checked="true" id="rbtn" class="form-check-input" name="gender"
+                                        #gender="ngModel" [(ngModel)]="empService.employeeData.gender" value="male">Male
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" id="rbtn" class="form-check-input" name="gender"
+                                        #gender="ngModel" [(ngModel)]="empService.employeeData.gender"
+                                        value="female">Female
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" id="rbtn" class="form-check-input" name="gender"
+                                        #gender="ngModel" [(ngModel)]="empService.employeeData.gender"
+                                        value="others">Others
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="isMarried"
+                                        #isMarried="ngModel" [(ngModel)]="empService.employeeData.isMarried">Married
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="isActive" #isActive="ngModel"
+                                        [(ngModel)]="empService.employeeData.isActive">Active
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success btn-block">Save</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="reset" class="btn btn-danger btn-block">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
